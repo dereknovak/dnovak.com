@@ -10,7 +10,7 @@ const App = () => {
   const [content, setContent] = useState('Home');
 
   return (
-    <div id='main-body'>
+    <>
       <div id='page-container'>
         <Header
           setContent={setContent}
@@ -19,7 +19,7 @@ const App = () => {
           content={content}
         />
       </div>
-    </div>
+    </>
   );
 }
 
