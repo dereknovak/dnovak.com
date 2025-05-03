@@ -5,20 +5,22 @@ import Home from './components/Home';
 import AboutMe from './components/AboutMe';
 import Media from './components/Media';
 import Contact from './components/Contact';
+import Headshot from './components/Headshot';
+import Nav from './components/Nav';
+import Info from './components/Info';
 
 const App = () => {
   const [content, setContent] = useState('Home');
 
   return (
     <>
-      <div id='page-container'>
-        <Header
-          setContent={setContent}
-        />
-        <Main 
-          content={content}
-        />
-      </div>
+      <Header
+        setContent={setContent}
+      />
+      <Main 
+        content={content}
+        setContent={setContent}
+      />
     </>
   );
 }
@@ -26,15 +28,9 @@ const App = () => {
 const Header = ({ setContent }) => {
   return (
     <header>
-      <nav>
-        <h2 onClick={() => setContent('Home')}>Derek</h2>
-        <ul>
-          <Tab name='Home' setContent={setContent} />
-          <Tab name='About Me' setContent={setContent} />
-          <Tab name='Media' setContent={setContent} />
-          <Tab name='Contact' setContent={setContent} />
-        </ul>
-      </nav>
+      <Headshot />
+      <Info />
+      <Nav setContent={setContent} />
     </header>
   );
 };
@@ -49,17 +45,38 @@ const Tab = ({ name, setContent }) => {
   );
 };
 
-const Main = ({ content }) => {
+const Main = ({ content, setContent }) => {
+  let pageContent;
+
   switch (content) {
     case 'About Me':
-      return <AboutMe />
+      pageContent = <AboutMe />
+      break;
     case 'Media':
-      return <Media />
+      pageContent = <Media />
+      break;
     case 'Contact':
-      return <Contact />
+      pageContent = <Contact />
+      break;
     default:
-      return <Home />
+      pageContent = <Home />
   };
+
+  return (
+    <main>
+      <div id='main-divider'>
+        <nav className='tabs'>
+          <ul>
+            <Tab name='Home' setContent={setContent} />
+            <Tab name='About Me' setContent={setContent} />
+          </ul>
+        </nav>
+        <div id='main-content'>
+          {pageContent}
+        </div>
+      </div>
+    </main>
+  );
 };
 
 export default App;

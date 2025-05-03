@@ -28,9 +28,13 @@ const Contact = () => {
       })
     });
 
-    alert('Message sent!');
-    resetFormData();
-    console.log(response);
+    if (response.status === 200) {
+      alert('Message sent!');
+      resetFormData();
+      console.log(response);
+    } else {
+      console.error(`Error ${response.status}: ${response.statusText}`);
+    }
   };
 
   const updateFormText = (e: ChangeEvent) => {
@@ -46,7 +50,7 @@ const Contact = () => {
     <>
       <h1>Contact</h1>
 
-      <form method='POST' action='' onSubmit={handleFormSubmission}>
+      <form id='contact-form' method='POST' action='' onSubmit={handleFormSubmission}>
         <dl>
           <dt>Name:</dt>
           <dd>
