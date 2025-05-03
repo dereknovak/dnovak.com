@@ -4,33 +4,42 @@ import './App.css';
 import Home from './components/Home';
 import AboutMe from './components/AboutMe';
 import Media from './components/Media';
-import Contact from './components/Contact';
 import Headshot from './components/Headshot';
 import Nav from './components/Nav';
 import Info from './components/Info';
+import Modal from './components/Modal';
 
 const App = () => {
   const [content, setContent] = useState('Home');
+  const [visibility, setVisibility] = useState('hidden');
 
   return (
     <>
       <Header
         setContent={setContent}
+        setVisibility={setVisibility}
       />
       <Main 
         content={content}
         setContent={setContent}
       />
+      <Modal
+        visibility={visibility}
+        setVisibility={setVisibility}
+      />
     </>
   );
 }
 
-const Header = ({ setContent }) => {
+const Header = ({ setContent, setVisibility }) => {
   return (
     <header>
       <Headshot />
       <Info />
-      <Nav setContent={setContent} />
+      <Nav
+        setContent={setContent}
+        setVisibility={setVisibility}
+      />
     </header>
   );
 };

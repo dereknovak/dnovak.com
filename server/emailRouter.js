@@ -27,7 +27,7 @@ router.post('/api/send-email', async (req, res) => {
       from: `"${name}" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_USER,
       subject: `Contact from ${name}`,
-      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n\n${message}`
+      text: `Name: ${name}\nEmail: ${email}\n\n${message}`
     });
 
     res.status(200).json({ message: 'Email sent successfully' });

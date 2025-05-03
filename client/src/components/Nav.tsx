@@ -1,4 +1,4 @@
-const Nav = ({ setContent }) => {
+const Nav = ({ setContent, setVisibility }) => {
   const links = [
     {
       id: 1,
@@ -14,6 +14,10 @@ const Nav = ({ setContent }) => {
     },
   ];
 
+  const showModal = () => {
+    setVisibility('visible');
+  };
+
   return (
     <nav className='profile'>
       <ul>
@@ -28,7 +32,7 @@ const Nav = ({ setContent }) => {
       <button
           id='contact-button'
           type='button'
-          onClick={() => setContent('Contact')}>
+          onClick={showModal}>
             Contact Me!
         </button>
     </nav>
