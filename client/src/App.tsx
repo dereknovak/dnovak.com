@@ -9,6 +9,10 @@ import Nav from './components/Nav';
 import Info from './components/Info';
 import Modal from './components/Modal';
 
+const formatToClass = (name) => {
+  return name.toLowerCase().split(' ').join('-');
+};
+
 const App = () => {
   const [content, setContent] = useState('Home');
   const [visibility, setVisibility] = useState('hidden');
@@ -50,7 +54,9 @@ const Tab = ({ name, setContent }) => {
   }
 
   return (
-    <li onClick={handleTabClick}>{name}</li>
+    <li onClick={handleTabClick} className={formatToClass(name)}>
+      {name}
+    </li>
   );
 };
 
@@ -73,15 +79,17 @@ const Main = ({ content, setContent }) => {
 
   return (
     <main>
-      <div id='main-divider'>
+      <div id='main-divider' className={formatToClass(content)}>
         <nav className='tabs'>
           <ul>
             <Tab name='Home' setContent={setContent} />
             <Tab name='About Me' setContent={setContent} />
           </ul>
         </nav>
-        <div id='main-content'>
-          {pageContent}
+        <div id='main-background'>
+          <div id='main-content'>
+            {pageContent}
+          </div>
         </div>
       </div>
     </main>

@@ -63,29 +63,33 @@ const Modal = ({ visibility, setVisibility }) => {
 
         <form id='contact-form' method='POST' action='' onSubmit={handleFormSubmission}>
           <dl>
-            <dt>Name:</dt>
-            <dd>
-              <input
-                id='name-input'
-                type='text'
-                name='name'
-                placeholder="John Doe"
-                required
-                onChange={updateFormText}
-              />
-            </dd>
+            <div className='name'>
+              <dt>Name:</dt>
+              <dd>
+                <input
+                  id='name-input'
+                  type='text'
+                  name='name'
+                  placeholder="John Doe"
+                  required
+                  onChange={updateFormText}
+                />
+              </dd>
+            </div>
 
-            <dt>Email:</dt>
-            <dd>
-              <input
-                id='email-input'
-                type='email'
-                name='email'
-                placeholder="example@example.com"
-                required
-                onChange={updateFormText}
-              />
-            </dd>
+            <div className='email'>
+              <dt>Email:</dt>
+              <dd>
+                <input
+                  id='email-input'
+                  type='email'
+                  name='email'
+                  placeholder="example@example.com"
+                  required
+                  onChange={updateFormText}
+                />
+              </dd>
+            </div>
           </dl>
 
           <textarea
