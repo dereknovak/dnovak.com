@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -15,7 +15,7 @@ const Contact = () => {
     });
   };
 
-  const handleFormSubmission = async (e) => {
+  const handleFormSubmission = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const response = await fetch('http://localhost:3000/api/send-email', {
@@ -37,7 +37,7 @@ const Contact = () => {
     }
   };
 
-  const updateFormText = (e: ChangeEvent) => {
+  const updateFormText = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const target = e.target
 
     setFormData({

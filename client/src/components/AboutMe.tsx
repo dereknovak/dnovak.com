@@ -1,14 +1,22 @@
 const AboutMe = () => {
   return (
     <>
-      <p>Hello!</p>
+      <p>Howdy!</p>
 
-      <p>My name is Derek and I'm a Software Engineer based out of Austin, Texas. I come from a robust background in <em>education</em> and <em>customer service</em>, transitioning fully into Software Engineering in 2023.</p>
+      <p>
+        I'm a full-stack software engineer from Austin, TX with multiple years
+        of experience in the JavaScript and Ruby ecosystems. Recently, I built
+        Vispyr, an end-to-end observability platform that automates AWS
+        deployment and simplifies telemetry setup for small engineering teams.
+        Having earned multiple degrees from distinguished institutions, I
+        combine disciplined problem-solving and a passion for continuous
+        learning to design elegant, high-impact software solutions.
+      </p>
 
-      <p>I plan to fill up this section at a later date, and simply want something to hold its place.</p>
+      <p>When not behind a computer, you can typically find me on a bicycle.</p>
 
       <p>Cheers!</p>
-      <img id='bicycle_botanic' src='src/assets/images/bicycle_botanic.jpg' />
+      <img id="bicycle_botanic" src="src/assets/images/bicycle_botanic.jpg" />
     </>
   );
 };

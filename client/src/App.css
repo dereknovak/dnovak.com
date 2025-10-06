@@ -3,9 +3,17 @@
 #root {
   display: flex;
   background-color: rgb(68, 68, 68);
+  align-items: center;
+  justify-content: center;
+}
+
+#viewport {
+  background-color: rgb(68, 68, 68);
+  max-width: 1600px;
 }
 
 h1 {
+  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   margin-top: 20px;
   font-size: 36px;
@@ -14,8 +22,15 @@ h1 {
 h2 {
   color: white;
   display: inline-block;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 36px;
+}
+
+h3 {
+  color: black;
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 28px;
 }
 
 header {
@@ -25,13 +40,12 @@ header {
   justify-content: space-between;
   position: fixed;
   height: 100%;
-  width: 35%;
+  width: 480px;
   background-color: rgb(28, 44, 84);
   padding: 20px 0;
 }
 
 nav.profile {
-  margin-bottom: 40px;
   align-items: center;
   padding: 5px;
   width: 80%;
@@ -42,12 +56,39 @@ main {
   flex-grow: 1;
   align-items: center;
   justify-content: center;
-  margin-left: 35%;
+  margin-left: 480px;
+}
+
+a {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a.case-study {
+  border: 2px solid black;
+  color: black;
+  display: flex;
+  font-size: 18px;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  width: 140px;
+  height: 50px;
+  white-space: nowrap;
+}
+
+a.case-study:hover {
+  background-color: rgb(255, 71, 58);
 }
 
 p {
-  font-size: 20px;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
   margin: 30px 0;
+}
+
+.button-svg {
+  width: 30px;
 }
 
 ul {
@@ -80,15 +121,17 @@ ul {
   padding: 10px 20px;
   margin: 0 60px;
   border-bottom: none;
-  clip-path: polygon(
-    12% 0%,
-    88% 0%,
-    100% 100%, 
-    0% 100%
-  );
+  clip-path: polygon(12% 0%, 88% 0%, 100% 100%, 0% 100%);
   position: relative;
   overflow: hidden;
   transition: color 0.3s ease;
+}
+
+.project-subhead {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
 }
 
 li {
@@ -108,14 +151,16 @@ dl {
   align-items: center;
 }
 
-dt, dd {
+dt,
+dd {
   margin: 5px;
+  font-family: Arial, Helvetica, sans-serif;
   display: inline-block;
 }
 
 dl img {
   width: 40px;
-  filter: invert(75%)
+  filter: invert(75%);
 }
 
 img {
@@ -128,6 +173,20 @@ textarea {
   display: block;
   margin: 0 auto;
   resize: none;
+}
+
+.project-content {
+  width: 100%;
+}
+
+#vispyr-logo {
+  width: 180px;
+}
+
+#vispyr-text {
+  padding-bottom: 40px;
+  width: 360px;
+  height: auto;
 }
 
 #modal-layer {
@@ -178,7 +237,7 @@ textarea {
 
 #form-modal input {
   padding: 3px;
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
 #name-input {
@@ -192,8 +251,8 @@ textarea {
 #form-modal textarea {
   width: 600px;
   padding: 10px;
-  font-size: .8em;
-  font-family:Arial, Helvetica, sans-serif;
+  font-size: 0.8em;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #form-modal,
@@ -212,9 +271,12 @@ textarea {
   pointer-events: auto;
 }
 
-#form-modal.visible { opacity: 1 }
-#modal-layer.visible { opacity: 0.65 }
-
+#form-modal.visible {
+  opacity: 1;
+}
+#modal-layer.visible {
+  opacity: 0.65;
+}
 
 #contact-form-submit {
   background-color: red;
@@ -233,22 +295,24 @@ textarea {
 
 #main-background {
   margin: 15px;
-  height: 100vh;
+  min-height: 100vh;
   padding: 20px;
-  background-color: rgb(240, 240, 221);
+  background-color: rgb(255, 255, 255);
 }
 
 #main-content {
+  display: flex;
+  flex-direction: column;
   margin: 0 40px;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .about-me {
-  background-color: rgb(124, 39, 27); /* deep earthy rust red */
+  background-color: rgb(124, 39, 27);
 }
 
-.home {
-  background-color: rgb(84, 60, 38); /* warm earthy brown-gray */
+.portfolio {
+  background-color: rgb(84, 60, 38);
 }
 
 #profile {
@@ -257,15 +321,20 @@ textarea {
   align-items: center;
   margin-top: 100px;
   filter: drop-shadow(0mm 0mm 2mm rgb(0, 0, 0));
+  margin-bottom: 10px;
 }
 
 #profile h2 {
-  margin-top: 15px;
+  margin-top: 30px;
 }
 
 #headshot {
   width: 250px;
   border-radius: 50%;
+}
+
+#links {
+  margin-bottom: 16px;
 }
 
 #linkedin {
@@ -276,6 +345,11 @@ textarea {
 #github {
   filter: invert(100%);
   width: 30px;
+}
+
+#resume {
+  width: 30px;
+  height: 30px;
 }
 
 #contact-button {
@@ -299,7 +373,7 @@ textarea {
 }
 
 .tabs li::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -385,7 +459,7 @@ textarea {
 
   #form-modal dt,
   #form-modal dd {
-    font-size: .8em;
+    font-size: 0.8em;
     margin: 5px 0;
   }
 }
